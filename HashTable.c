@@ -67,7 +67,6 @@ void HashTableStats(HashTable ht)
 	int listLength = 0;
 	for(listLength = 0; listLength <= 10; listLength++){//Still need a better max length checker
 	//Checks for lists this length
-		printf("%d   ", listLength);
 		int counter = 0;
 		int numChains = 0;
 		for(; counter < (ht->nslots); counter++){
@@ -75,9 +74,10 @@ void HashTableStats(HashTable ht)
 				numChains++;
 			}
 		}
-		printf("  %d  \n", numChains);
+		printf("   %d    %d\n", listLength, numChains);
 	}
 }
+
 
 // insert a new value into a HashTable
 void HashTableInsert(HashTable ht, Item it)
@@ -105,4 +105,3 @@ Item *HashTableSearch(HashTable ht, Key k)
 	int i = hash(k, ht->nslots);
 	return ListSearch(ht->lists[i], k);
 }
-

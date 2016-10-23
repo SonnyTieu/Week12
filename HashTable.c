@@ -74,7 +74,7 @@ void HashTableStats(HashTable ht)
 				numChains++;
 			}
 		}
-		if(numChains!=)printf("   %d    %d\n", listLength, numChains);
+		if(numChains!=0)printf("   %d    %d\n", listLength, numChains);
 	}
 }
 

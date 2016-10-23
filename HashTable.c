@@ -65,9 +65,15 @@ void HashTableStats(HashTable ht)
 	printf("Chain length distribution\n");
 	printf("%8s %8s\n","Length","#Chains");
 	int listLength = 0;
-	for(listLength = 0; listLength <= 10; listLength++){//Still need a better max length checker
+	int maxLength = 0;
+	int counter = 0;
+	if(ListLength(ht->lists[counter]) > listLength){
+		maxLength = ListLength(ht->lists[counter]);
+	}
+	for(listLength = 0; listLength <=maxLength; listLength++){
+	//How to find next list Length
 	//Checks for lists this length
-		int counter = 0;
+		counter = 0;
 		int numChains = 0;
 		for(; counter < (ht->nslots); counter++){
 			if(ListLength(ht->lists[counter]) == listLength){

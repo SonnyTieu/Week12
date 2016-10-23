@@ -67,9 +67,13 @@ void HashTableStats(HashTable ht)
 	int listLength = 0;
 	int maxLength = 0;
 	int counter = 0;
-	if(ListLength(ht->lists[counter]) >= maxLength){
-		maxLength = ListLength(ht->lists[counter]);
+
+	for(; counter < (ht->nslots); counter++){
+		if(ListLength(ht->lists[counter]) >= maxLength){
+			maxLength = ListLength(ht->lists[counter]);
+		}
 	}
+	
 	for(listLength = 0; listLength <=maxLength; listLength++){
 	//How to find next list Length
 	//Checks for lists this length

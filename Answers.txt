@@ -1,0 +1,3 @@
+A. 
+The mkwords 1000000 3 command produces 857424 distinct words. What is the maximum chain length if a hash table size of 85711 is used? How does the chain length distribution change if the hash table size is 100000? 214283? 400000? 400837? 857144? 857137?
+

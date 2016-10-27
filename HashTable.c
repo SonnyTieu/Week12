@@ -67,13 +67,13 @@ void HashTableStats(HashTable ht)
 	int listLength = 0;
 	int maxLength = 0;
 	int counter = 0;
-
 	for(; counter < (ht->nslots); counter++){
 		if(ListLength(ht->lists[counter]) >= maxLength){
 			maxLength = ListLength(ht->lists[counter]);
 		}
 	}
-	
+
+/*
 	for(listLength = 0; listLength <=maxLength; listLength++){
 	//How to find next list Length
 	//Checks for lists this length
@@ -88,6 +88,30 @@ void HashTableStats(HashTable ht)
 			printf("   %d    %d\n", listLength, numChains);
 		}
 	}
+	*/
+	int hashStats[maxLength+1]; //This is because the Length starts counting at 0
+  
+   //Initialises the whole array to 0.
+	for(listLength = 0;listLength<=maxLength;listLength++){
+		hashStats[listLength] = 0;
+	}
+	
+	//Goes through each Hashtable slot position and gets it length and increases 
+	//its corresponding array value
+	
+	int arrayPosition;
+	for(arrayPosition = 0;arrayPosition < (ht->nslots);arrayPosition++)
+	{
+		hashStats[ListLength(ht->lists[arrayPosition])]++;
+	}
+
+	//ListLength(ht->lists[listLength])
+	for (listLength = 0;listLength<maxLength;listLength++){
+	   if(hashStats[listLength]!=0){
+			printf("   %d    %d\n", listLength, hashStats[listLength]);
+	  }
+	}
+	
 }
 
 
